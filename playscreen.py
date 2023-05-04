@@ -3,8 +3,8 @@
 Goals
 -create a sprite and sprite sheet for 1 character
     -2 different sprite animation for idle
-    -8 different sprite animation for walk 
-    -to duplicate image select the right tool
+    -8 different sprite animation for walk  
+    -to duplicate image select the right tool and then press ALT + SHIFT + CLICK AND DRAG
 
 
 
