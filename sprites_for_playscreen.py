@@ -10,12 +10,11 @@ from settings_for_playscreen import *
 
 dir = path.dirname(__file__)
 img_dir = path.join(dir, 'images')
-SPRITESHEET = "Sprite Sheet for final project.psd"
+SPRITESHEET = "Sprite Sheet for final project coding.png"
 
 class Spritesheet:
     def __init__(self,filename):
         self.spritesheet = pg.image.load(filename).convert()
-
     def get_image(self, x, y, width, height):
         # grabs the sprite images that would make the animation from the sprite sheet
         image = pg.Surface((width,height))
@@ -25,7 +24,7 @@ class Spritesheet:
 class Animated_sprite(Sprite):
     def __init__(self):
         Sprite.__init__(self)
-        self.spritesheet = Spritesheet(path.join(img_dir, "Sprite Sheet for final project.psd"))
+        self.spritesheet = Spritesheet(path.join(img_dir, "Sprite Sheet for final project coding.png"))
         self.load_images()
         self.image = self.standing_frames[0]
         self.rect = self.image.get_rect()
