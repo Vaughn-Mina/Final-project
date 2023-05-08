@@ -19,7 +19,7 @@ class Spritesheet:
         # grabs the sprite images that would make the animation from the sprite sheet
         image = pg.Surface((width,height))
         image.blit(self.spritesheet, (0,0), (x, y, width, height))
-        image = pg.transform.scale(image, (width//2, height //2))
+        image = pg.transform.scale(image, (width*2, height*2))
         return image 
 class Animated_sprite(Sprite):
     def __init__(self):
@@ -38,8 +38,10 @@ class Animated_sprite(Sprite):
                                 self.spritesheet.get_image(32, 0, 32, 32)]
         for frame in self.standing_frames:
             frame.set_colorkey(BLACK)
-        # self.walk_frames_r = [self.spritesheet.get_image(678, 860, 120, 201),
-        #                       self.spritesheet.get_image(692, 1458, 120, 207)]
+        keystate=pg.key.get_pressed()
+        if keystate[pg.K_d]:
+            self.walk_frames_r = [self.spritesheet.get_image(64, 0, 64, 64),
+                                  self.spritesheet.get_image(64, 0, 64, 64)]
         # self.walk_frames_l = []
         # for frame in self.walk_frames_r:
         #     frame.set_colorkey(BLACK)
