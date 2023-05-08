@@ -10,7 +10,7 @@ from settings_for_playscreen import *
 
 dir = path.dirname(__file__)
 img_dir = path.join(dir, 'images')
-SPRITESHEET = "Sprite Sheet for final project coding.png"
+SPRITESHEET = "Sprite_Sheet_for_final_project_coding.png"
 
 class Spritesheet:
     def __init__(self,filename):
@@ -24,7 +24,7 @@ class Spritesheet:
 class Animated_sprite(Sprite):
     def __init__(self):
         Sprite.__init__(self)
-        self.spritesheet = Spritesheet(path.join(img_dir, "Sprite Sheet for final project coding.png"))
+        self.spritesheet = Spritesheet(path.join(img_dir, "Sprite_Sheet_for_final_project_coding.png"))
         self.load_images()
         self.image = self.standing_frames[0]
         self.rect = self.image.get_rect()
@@ -34,8 +34,8 @@ class Animated_sprite(Sprite):
         self.last_update = 0
         
     def load_images(self):
-        self.standing_frames = [self.spritesheet.get_image(0, 0, 128, 128),
-                                self.spritesheet.get_image(128, 0, 128, 128)]
+        self.standing_frames = [self.spritesheet.get_image(0, 0, 32, 32),
+                                self.spritesheet.get_image(32, 0, 32, 32)]
         for frame in self.standing_frames:
             frame.set_colorkey(BLACK)
         # self.walk_frames_r = [self.spritesheet.get_image(678, 860, 120, 201),
