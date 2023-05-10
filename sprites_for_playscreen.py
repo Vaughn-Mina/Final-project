@@ -38,14 +38,13 @@ class Animated_sprite(Sprite):
                                 self.spritesheet.get_image(32, 0, 32, 32)]
         for frame in self.standing_frames:
             frame.set_colorkey(BLACK)
-        
         keystate=pg.key.get_pressed()
         if keystate[pg.K_d]:
             self.walking= True
+            print("I am walking")
             self.walk_frames_r = [self.spritesheet.get_image(64, 0, 32, 32),
                                   self.spritesheet.get_image(96, 0, 32, 32)]
-            print("I am walking")
-        self.walk_frames_l = [1,2]
+        self.walk_frames_r = [1,2]
         for frame in self.walk_frames_r:
             frame.set_colorkey(BLACK)
             self.walk_frames_l.append(pg.transform.flip(frame, True, False))
