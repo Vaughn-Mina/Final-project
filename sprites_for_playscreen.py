@@ -47,7 +47,7 @@ class Animated_sprite(Sprite):
         self.walk_frames_r = [1,2]
         for frame in self.walk_frames_r:
             frame.set_colorkey(BLACK)
-            self.walk_frames_l.append(pg.transform.flip(frame, True, False))
+            self.walk_frames_r.append(pg.transform.flip(frame, True, False))
         # self.jump_frame = self.spritesheet.get_image(382, 763, 150, 181)
         # self.jump_frame.set_colorkey(BLACK)
     def animate(self):
