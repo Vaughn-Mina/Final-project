@@ -32,22 +32,24 @@ class Animated_sprite(Sprite):
         self.walking = False
         self.current_frame = 0
         self.last_update = 0
-        
+    def input(self):
+        keystate = pg.key.get_pressed()
+        if keystate[pg.K_d]:
+            self.walking = True 
+            print("I am walking")
     def load_images(self):
         self.standing_frames = [self.spritesheet.get_image(0, 0, 32, 32),
                                 self.spritesheet.get_image(32, 0, 32, 32)]
-        for frame in self.standing_frames:
-            frame.set_colorkey(BLACK)
-        keystate=pg.key.get_pressed()
-        if keystate[pg.K_d]:
-            self.walking= True
-            print("I am walking")
+        if self.walking == True:
             self.walk_frames_r = [self.spritesheet.get_image(64, 0, 32, 32),
                                   self.spritesheet.get_image(96, 0, 32, 32)]
-        self.walk_frames_r = [1,2]
-        for frame in self.walk_frames_r:
-            frame.set_colorkey(BLACK)
-            self.walk_frames_r.append(pg.transform.flip(frame, True, False))
+            for frame in self.standing_frames: 
+                frame.set_colorkey(BLACK)
+        # self.walk_frames_r = [self.spritesheet.get_image(0, 0, 32, 32),
+        #                         self.spritesheet.get_image(32, 0, 32, 32)]
+        # for frame in self.walk_frames_r:
+        #     frame.set_colorkey(BLACK)
+        #     self.walk_frames_r.append(pg.transform.flip(frame, True, False))
         # self.jump_frame = self.spritesheet.get_image(382, 763, 150, 181)
         # self.jump_frame.set_colorkey(BLACK)
     def animate(self):
@@ -61,4 +63,5 @@ class Animated_sprite(Sprite):
                 self.rect = self.image.get_rect()
                 self.rect.bottom = bottom
     def update(self):
+        self.input()
         self.animate()
