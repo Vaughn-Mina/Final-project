@@ -28,22 +28,17 @@ class Animated_sprite(Sprite):
         self.load_images()
         self.image = self.standing_frames[0]
         self.rect = self.image.get_rect()
+        self.idle = True
         self.jumping = False
         self.walking = False
         self.current_frame = 0
         self.last_update = 0
-    def input(self):
-        keystate = pg.key.get_pressed()
-        if keystate[pg.K_d]:
-            self.walking = True 
-            print("I am walking")
     def load_images(self):
         self.standing_frames = [self.spritesheet.get_image(0, 0, 32, 32),
                                 self.spritesheet.get_image(32, 0, 32, 32)]
-        if self.walking == True:
-            self.walk_frames_r = [self.spritesheet.get_image(64, 0, 32, 32),
+        self.walk_frames_r = [self.spritesheet.get_image(64, 0, 32, 32),
                                   self.spritesheet.get_image(96, 0, 32, 32)]
-            for frame in self.standing_frames: 
+        for frame in self.standing_frames: 
                 frame.set_colorkey(BLACK)
         # self.walk_frames_r = [self.spritesheet.get_image(0, 0, 32, 32),
         #                         self.spritesheet.get_image(32, 0, 32, 32)]
@@ -52,6 +47,13 @@ class Animated_sprite(Sprite):
         #     self.walk_frames_r.append(pg.transform.flip(frame, True, False))
         # self.jump_frame = self.spritesheet.get_image(382, 763, 150, 181)
         # self.jump_frame.set_colorkey(BLACK)
+    def input(self):
+        keystate = pg.key.get_pressed()
+        if keystate[pg.K_d]:
+            self.idle = False
+            self.walking = True 
+            self.walk_frames_r
+            print("I am walking")
     def animate(self):
         now = pg.time.get_ticks()
         if not self.jumping and not self.walking:
