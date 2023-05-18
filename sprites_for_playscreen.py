@@ -33,13 +33,13 @@ class Animated_sprite(Sprite):
         self.walking = False
         self.current_frame = 0
         self.last_update = 0
-    def input(self):
-        keystate = pg.key.get_pressed()
-        if keystate[pg.K_d]:
-            self.idle = False
-            self.walking = True 
-            print("I am walking")
-            self.current_frame +=1
+    # def input(self):
+    #     keystate = pg.key.get_pressed()
+    #     if keystate[pg.K_d]:
+    #         self.idle = False
+    #         self.walking = True 
+    #         print("I am walking")
+    #         self.current_frame +=1
     def load_images(self):
         self.standing_frames = [self.spritesheet.get_image(0, 0, 32, 32),
                                 self.spritesheet.get_image(32, 0, 32, 32)]
