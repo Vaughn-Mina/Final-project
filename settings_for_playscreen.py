@@ -1,7 +1,7 @@
 # File created by Vaughn Mina
 FONT_NAME="arial"
-WIDTH=300
-HEIGHT=200
+WIDTH=500
+HEIGHT=500
 FPS=30
 BLACK=(0,0,0)
 BGCOLOR=(0,0,0)
